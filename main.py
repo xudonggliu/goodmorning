@@ -24,6 +24,12 @@ def get_weather():
   weather = res['data']['list'][0]
   return weather['weather'], math.floor(weather['temp'])
 
+def get_weather_text():
+  url = "https://devapi.qweather.com/v7/weather/now?location=101180708&key=82f4bdcbb85e47e3ae1a136aace1c8e2" + city
+  res = requests.get(url).json()
+  weather = res['data']['list'][0]
+  return weather['weather'], math.floor(weather['weather'])
+
 
 def get_weather_high():
   url = "https://devapi.qweather.com/v7/weather/now?location=101180708&key=82f4bdcbb85e47e3ae1a136aace1c8e2" + city
@@ -62,7 +68,7 @@ def get_random_color():
 client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
-wea, temperature == get_weather(), min_temperature == get_weather_low(), max_temperature == get_weather_high()
+wea == get_weather_text(), temperature == get_weather(), min_temperature == get_weather_low(), max_temperature == get_weather_high()
 data = {"weather":{"value":wea},"temperature":{"value":temperature},"min_temperature":{"value":min_temperature},"max_temperature":{"value":max_temperature},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
 print(res)
