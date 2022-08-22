@@ -19,26 +19,26 @@ template_id = os.environ["TEMPLATE_ID"]
 
 
 def get_weather():
-  url = "https://devapi.qweather.com/v7/weather/now?location=101180708&key=82f4bdcbb85e47e3ae1a136aace1c8e2" + city
+  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
   res = requests.get(url).json()
   weather = res['data']['list'][0]
   return weather['weather'], math.floor(weather['temp'])
 
 def get_weather_text():
-  url = "https://devapi.qweather.com/v7/weather/now?location=101180708&key=82f4bdcbb85e47e3ae1a136aace1c8e2" + city
+  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
   res = requests.get(url).json()
   weather_txt = res['data']['list'][0]
   return weather_txt['weather_txt'], math.floor(weather_txt['weather'])
 
 
 def get_weather_high():
-  url = "https://devapi.qweather.com/v7/weather/now?location=101180708&key=82f4bdcbb85e47e3ae1a136aace1c8e2" + city
+  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
   res = requests.get(url).json()
   min_temperature = res['data']['list'][0]
   return min_temperature['min_temperature'], math.floor(min_temperature['high'])
 
 def get_weather_low():
-  url = "https://devapi.qweather.com/v7/weather/now?location=101180708&key=82f4bdcbb85e47e3ae1a136aace1c8e2" + city
+  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
   res = requests.get(url).json()
   min_temperature = res['data']['list'][0]
   return min_temperature['min_temperature'], math.floor(min_temperature['low'])
