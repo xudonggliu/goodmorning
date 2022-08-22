@@ -24,24 +24,17 @@ def get_weather():
   weather = res['data']['list'][0]
   return weather['weather'], math.floor(weather['temp'])
 
-def get_weather_text():
-  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
-  res = requests.get(url).json()
-  weather_txt = res['data']['list'][0]
-  return weather_txt['weather_txt'], math.floor(weather_txt['weather'])
-
-
 def get_weather_high():
   url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
   res = requests.get(url).json()
-  min_temperature = res['data']['list'][0]
-  return min_temperature['min_temperature'], math.floor(min_temperature['high'])
+  max_temperature = res['data']['list'][0]
+  return math.floor(max_temperature['high'])
 
 def get_weather_low():
   url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
   res = requests.get(url).json()
   min_temperature = res['data']['list'][0]
-  return min_temperature['min_temperature'], math.floor(min_temperature['low'])
+  return math.floor(min_temperature['low'])
 
 
 
