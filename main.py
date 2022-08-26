@@ -75,9 +75,9 @@ def get_words():
 
 def get_one_words():
   onewords = requests.get("https://v1.hitokoto.cn/?c=j&c=i&c=d&c=k&c=c")
-  if words.status_code != 200:
+  if onewords.status_code != 200:
     return get_one_words()
-  return words.json()['data']['hitokoto'] + "   《" + words.json()['data']['from']+"》--" + words.json()['data']['from_who']
+  return onewords.json()['data']['hitokoto'] + "   《" + onewords.json()['data']['from']+"》--" + onewords.json()['data']['from_who']
 
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
