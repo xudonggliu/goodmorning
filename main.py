@@ -80,9 +80,9 @@ def get_one_words():
   onestr = onewords.json()['hitokoto']
   if onewords.json()['from'] != '':
     onestr = onewords.json()['hitokoto'] + "   《" + onewords.json()['from'] +"》"
-  if str(onewords.json()['from_who'])!= '' :
+  if str(onewords.json()['from_who'])!= '' and onewords.json()['from_who'] != null:
     onestr = onewords.json()['hitokoto'] + "   --" + str(onewords.json()['from_who'])
-  if onewords.json()['from'] != '' and onewords.json()['from_who'] != '' :
+  if onewords.json()['from'] != '' and onewords.json()['from_who'] != '' and onewords.json()['from_who'] != null:
     onestr = onewords.json()['hitokoto'] + "   《" + onewords.json()['from']+"》--" + str(onewords.json()['from_who'])
   return onestr
 
